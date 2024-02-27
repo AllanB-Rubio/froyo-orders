@@ -12,6 +12,7 @@
 // Can you build an object to track which flavors you have observed so far?
 // As you iterate through the array of flavors, when should that object be updated?
 // Is your logic organized into a function?
+// =======================================================
 
 // 1. Create prompt upon opening website and Ask user to enter a list of froyo flavors, separated by commas
 // 2. Parse user input into array using .split(",") method 
@@ -19,25 +20,29 @@
 // 4. Iterate through the array and update it 
 // 5. Use console.table to display a table listing of how many of each flavor they have ordered
 
-// Prompt user 
+//1. Prompt user 
 const orderHere = prompt(
   "Enter your order of what froyo flavors you'd like, separated by commas"
 );
 
-// Parse user input into an array // contains user order - flavors of froyo
+//2. Parse user input into an array using .split // contains user order - flavors of froyo
 const flavorOrder = orderHere.split(",");
 
-//Object to keep track of flavors ordered 
-const totalflavorsOrdered = {};
+//3. Empty array to keep track of flavors ordered 
+const totalflavorsOrdered = [];
 
-// Inside the for..of loop , the variable flavor will represent each individual flavor in the totalflavorsOrdered array during each iteration. 
+// 4. Inside the for..of loop , the variable - flavor, will represent each individual flavor in the totalflavorsOrdered array during each iteration. 
+
 for ( const flavor of flavorOrder) {
   if (totalflavorsOrdered[flavor]) {
     // if flavor already exists in the object, increment count/flavor to array 
-    totalflavorsOrdered[flavor]++;
+    totalflavorsOrdered[flavor]++; // adds to array totalflavorsOrdered 
   } else {
+    totalflavorsOrdered[flavor] = 1; 
     // if the flavor doesn't exist in the object, initialize its count to 1/add to array
-  } totalflavorsOrdered[flavor] = 1;
+  }
 }
 
 console.table(totalflavorsOrdered);
+
+
